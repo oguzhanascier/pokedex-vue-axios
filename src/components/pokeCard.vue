@@ -28,13 +28,13 @@ export default {
     };
   },
   methods: {
-   getPoke() {
+   async getPoke() {
       let randomId = Math.floor(Math.random() * 905 + 1);
       this.random = randomId;
       console.log(this.random);
 
       axios
-        .get("https://pokeapi.co/api/v2/pokemon-form/" + this.random)
+        .get("" + this.random)
         .then((res) => {
 
             console.log(res)
