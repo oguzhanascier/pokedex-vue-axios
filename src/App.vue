@@ -1,28 +1,83 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <pokeCard></pokeCard>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import pokeCard from "./components/pokeCard.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    pokeCard,
+  },
+};
 </script>
 
 <style lang="scss">
+@mixin display() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin bg() {
+  background: #dde1e7;
+}
+
+@mixin widthHeight($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin fontWeightSize($weight, $size) {
+  font-weight: $weight;
+  font-size: $size;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include bg();
+  font-family: "Courier New", Courier, monospace;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  @include display();
+  height: 100vh;
+}
+
+.card {
+  @include display();
+  @include bg();
+  @include widthHeight(350px, 450px);
+  border: 1px solid #e8ecf3;
+  padding: 9px;
+  border-radius: 20px;
+  flex-direction: column;
+  box-shadow: -5px -5px 6px #fffff723,
+    3px 3px 5px rgba(94, 104, 121, 0.288);
+
+  .pokeImg {
+    @include widthHeight(100%, 100%);
+    @include display();
+
+    img {
+      @include widthHeight(85%, 85%);
+    }
+  }
+  .pokeId {
+    @include fontWeightSize(600, 16px);
+  }
+  .pokeName {
+    @include fontWeightSize(500, 20px);
+    margin: 12px;
+  }
+  .pokeType {
+    @include fontWeightSize(300, 14px);
+  }
 }
 </style>
