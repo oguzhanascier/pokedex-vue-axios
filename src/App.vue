@@ -58,7 +58,6 @@ body {
   @include display();
   @include bg();
   @include widthHeight(350px, 450px);
-  border: 1px solid #e8ecf3;
   padding: 9px;
   border-radius: 20px;
   flex-direction: column;
