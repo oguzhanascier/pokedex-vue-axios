@@ -3,13 +3,13 @@
     <div class="card">
       <div class="pokeImg">
         <img
-          src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png"
+          :src="pokeImg"
           alt=""
         />
       </div>
-      <div class="pokeId">#150</div>
-      <div class="pokeName">Mewtwo</div>
-      <div class="pokeType">Pysic</div>
+      <div class="pokeId">#{{pokeId}}</div>
+      <div class="pokeName">{{pokeName}}</div>
+      <div class="pokeType">{{pokeType}}</div>
     </div>
     <button @click="getPoke">POKE</button>
   </div>
@@ -21,22 +21,31 @@ export default {
   data() {
     return {
       pokeImg: null,
-      pokeId: null,
-      pokeName: null,
+      pokeId:null,
+      pokeName: "at",
       pokeType: null,
+      random:null
     };
   },
   methods: {
-    getPoke() {
+   getPoke() {
       let randomId = Math.floor(Math.random() * 905 + 1);
-      this.pokeId = randomId;
-      console.log(this.pokeId);
+      this.random = randomId;
+      console.log(this.random);
 
       axios
-        .get("https://pokeapi.co/api/v2/pokemon-form/" + this.pokeId)
+        .get("https://pokeapi.co/api/v2/pokemon-form/" + this.random)
         .then((res) => {
-          let data = res.data;
-          console.log(data);
+
+            console.log(res)
+          let pokemon = res.data;
+            this.pokeImg=pokemon
+            this.pokeId=pokemon.id
+            this.pokeName=pokemon.name
+            this.pokeType=pokemon.types[0].type.name
+            this.pokeImg=`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${this.pokeId}.png`
+
+
         });
     },
   },
