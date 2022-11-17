@@ -8,13 +8,15 @@
       <div class="pokeName">{{ pokeName }}</div>
       <div class="pokeType">{{ pokeType }}</div>
     </div>
-    <button @click="getPoke">POKE</button>
+    <pokeButton></pokeButton>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import pokeButton from '../components/pokeButton.vue'
 export default {
+    components:{pokeButton},
   data() {
     return {
       pokeImg: null,
