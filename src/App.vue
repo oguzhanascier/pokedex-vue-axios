@@ -35,9 +35,8 @@ export default {
   font-size: $size;
 }
 
-@mixin boxShadow(){
-  box-shadow: -5px -5px 6px #fffff723,
-    2px 2px 5px rgba(94, 104, 121, 0.288);
+@mixin boxShadow() {
+  box-shadow: -5px -5px 6px #fffff723, 2px 2px 5px rgba(94, 104, 121, 0.288);
 }
 
 * {
@@ -65,13 +64,13 @@ body {
   flex-direction: column;
   @include boxShadow();
 
-
   .pokeImg {
     @include widthHeight(100%, 100%);
     @include display();
 
     img {
       @include widthHeight(85%, 85%);
+      border: none;
     }
   }
   .pokeId {
@@ -86,7 +85,7 @@ body {
   }
 }
 
-.changePoke{
+.changePoke {
   @include bg();
   @include widthHeight(100%, 50px);
   @include boxShadow();
@@ -95,12 +94,10 @@ body {
   border-radius: 20px;
   border: none;
   cursor: pointer;
-  transition: all .5s ease-in-out;
-  &:hover{
+  transition: all 0.5s ease-in-out;
+  &:hover {
     box-shadow: -5px -5px 6px #fffff723,
-    2px 2px 5px rgba(94, 104, 121, 0.288) inset;
+      2px 2px 5px rgba(94, 104, 121, 0.288) inset;
   }
-
-
 }
 </style>

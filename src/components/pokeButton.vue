@@ -10,11 +10,10 @@ export default {
     return {};
   },
   methods: {
-    getId() {
-      let randomNumber = Math.floor(Math.random() * 905 + 1);
+    async getId() {
+      let randomNumber = await Math.floor(Math.random() * 905 + 1);
 
-      this.$emit('randomID', randomNumber)
-      console.log("button component", randomNumber)
+      await this.$emit("randomID", randomNumber);
     },
   },
 };

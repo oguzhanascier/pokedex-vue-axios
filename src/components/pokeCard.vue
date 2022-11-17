@@ -2,7 +2,7 @@
   <div>
     <div class="card">
       <div class="pokeImg">
-        <img :src="pokeImg" :alt="pokeName + '( there is not a photo)'" />
+        <img :src="pokeImg" :alt="pokeName + 'there is not a photo'" />
       </div>
       <div class="pokeId">#{{ pokeId }}</div>
       <div class="pokeName">{{ pokeName }}</div>
@@ -23,12 +23,21 @@ export default {
       pokeId: 150,
       pokeName: "mewtwo",
       pokeType: "psychic",
+      random: null,
     };
   },
   methods: {
     async getPoke() {
+      // let url = `https://pokeapi.co/api/v2/pokemon-form/${this.pokeId}`;
+
+      // let res = await axios(url);
+      // let data = await (res);
+      // this.pokeId = data.id;
+      // this.pokeName = data.name;
+      // // this.pokeType = data.types[0].type.name;
+      // this.pokeImg = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${this.pokeId}.png`;
+
       await axios.get("" + this.pokeId).then((res) => {
-        console.log(res);
         let pokemon = res.data;
         this.pokeImg = pokemon;
         this.pokeId = pokemon.id;
@@ -38,11 +47,11 @@ export default {
       });
     },
   },
-  watch:{
-    pokeId(){
-      this.getPoke()
-    }
-  }
+  watch: {
+    pokeId() {
+      this.getPoke();
+    },
+  },
 };
 </script>
 
