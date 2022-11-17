@@ -70,6 +70,9 @@ body {
     img {
       @include widthHeight(85%, 85%);
       border: none;
+      filter: drop-shadow( 15px -20px 4px rgba(94, 104, 121));
+
+
     }
   }
   .pokeId {
@@ -91,12 +94,13 @@ body {
   @include fontWeightSize(500, 18px);
   margin-top: 50px;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #1b1b1905;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  // transition: all 0.5s ease-in-out;
   &:hover {
     box-shadow: -5px -5px 6px #fffff723,
       2px 2px 5px rgba(94, 104, 121, 0.288) inset;
+    border: 1px solid #1b1b1937;
   }
 }
 </style>
