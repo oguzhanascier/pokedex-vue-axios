@@ -36,7 +36,7 @@ export default {
 }
 
 @mixin boxShadow() {
-  box-shadow: -5px -5px 6px #fffff723, 2px 2px 5px rgba(94, 104, 121, 0.288);
+  box-shadow: -5px -5px 6px #fffff762, 2px 2px 5px rgba(94, 104, 121, 0.288);
 }
 
 * {
@@ -70,7 +70,7 @@ body {
     img {
       @include widthHeight(85%, 85%);
       border: none;
-      filter: drop-shadow( 15px -20px 4px rgba(94, 104, 121));
+      filter: drop-shadow( 25px -25px 9px rgba(94, 104, 121));
 
 
     }
